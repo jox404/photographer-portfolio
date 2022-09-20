@@ -1,0 +1,59 @@
+.column-container {
+  height: 100vh;
+  overflow: hidden;
+  margin: 0px 10px;
+}
+
+.pictures-container {
+  position: relative;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+.up {
+  animation-name: up;
+}
+.down {
+  animation-name: down;
+}
+
+.pictures-container:hover {
+  animation-play-state: paused;
+}
+
+.picture {
+  width: 100%;
+}
+
+.pictureClone {
+  content: " ";
+  position: absolute;
+}
+
+.photography {
+  width: 250px;
+  height: 100%;
+  margin: 10px 0px;
+}
+
+@keyframes up {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes down {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
