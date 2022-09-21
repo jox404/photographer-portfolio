@@ -5,7 +5,7 @@ type PicturesProps = {
   reverse: boolean;
 };
 
-export default ({ reverse }: PicturesProps) => {
+export const PicturesColumn = ({ reverse }: PicturesProps) => {
   return (
     <>
       <div className="column-container">

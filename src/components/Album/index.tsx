@@ -1,25 +1,71 @@
-import React from "react";
-import PicturesColumn from "../PicturesColumn";
+import { useEffect, useState } from "react";
+import data from "../../assets/data/pictures.json";
 import "./styles/index.css";
 
-export default () => {
+type picturesArrayType = {
+  link: string;
+  theme: string;
+}[];
+
+export const Album = () => {
+  const [picturesArray, setPicturesArray] = useState<picturesArrayType>(data);
+  const [picturesRender, setPicturesRender] = useState<
+    Array<{
+      link: string;
+      theme: string;
+    }>
+  >([]);
+  const handleFilter = () => {
+    var themes: string[] = [];
+    picturesArray.map((picture) => {
+      let alreadyExists = themes.find((theme) => {
+        return theme == picture.theme;
+      });
+      if (alreadyExists === undefined) {
+        themes.push(picture.theme);
+      }
+    });
+  };
+
+  const filterByTheme = (filter: string) => {
+    const pictureFiltered: picturesArrayType = [];
+    picturesArray.map((picture) => {
+      if (picture.theme === filter) {
+        pictureFiltered.push(picture);
+      }
+    });
+    setPicturesRender(pictureFiltered);
+    console.log(pictureFiltered);
+  };
+
+  useEffect(() => {
+    handleFilter();
+    filterByTheme("japan");
+    console.log();
+  }, []);
+
   return (
     <>
       <div className="album-container">
-        <PicturesColumn reverse={false} />
-        <PicturesColumn reverse={true} />
-        <PicturesColumn reverse={false} />
-        <PicturesColumn reverse={true} />
-        <div className="home-presentation">
-          <div>
-            <h1 className="presentation-title">Lorem ipsum dolor sit amet </h1>
-            <p className="presentation-subTitle">
-              consectetur adipisicing elit. Quae tempore cum, minima nostrum
-              facere aut hic laborum asperiores debitis maiores saepe autem ut
-              voluptas amet a cumque maxime beatae sunt.
-            </p>
-            <button>Lorem ipsum</button>
-          </div>
+        <div className="filter-bar">
+          <ul>
+            <li>Japan</li>
+            <li>São Paulo</li>
+            <li>People</li>
+          </ul>
+        </div>
+        <div className="pictures-grid">
+          {picturesRender.map((picture, index) => {
+            return (
+              <div className="picture-container">
+                <img
+                  key={index}
+                  src={picture.link}
+                  className={"picture-album"}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </>
