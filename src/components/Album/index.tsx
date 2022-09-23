@@ -15,6 +15,8 @@ export const Album = () => {
       theme: string;
     }>
   >([]);
+  const [themes, setThemes] = useState<string[]>();
+
   const handleFilter = () => {
     var themes: string[] = [];
     picturesArray.map((picture) => {
@@ -25,6 +27,7 @@ export const Album = () => {
         themes.push(picture.theme);
       }
     });
+    setThemes(themes);
   };
 
   const filterByTheme = (filter: string) => {
@@ -40,7 +43,7 @@ export const Album = () => {
 
   useEffect(() => {
     handleFilter();
-    filterByTheme("japan");
+    setPicturesRender(picturesArray);
     console.log();
   }, []);
 
@@ -49,9 +52,14 @@ export const Album = () => {
       <div className="album-container">
         <div className="filter-bar">
           <ul>
-            <li>Japan</li>
-            <li>São Paulo</li>
-            <li>People</li>
+            <li onClick={() => setPicturesRender(picturesArray)}>All</li>
+            {themes?.map((theme, index) => {
+              return (
+                <>
+                  <li onClick={() => filterByTheme(theme)}>{theme}</li>
+                </>
+              );
+            })}
           </ul>
         </div>
         <div className="pictures-grid">
