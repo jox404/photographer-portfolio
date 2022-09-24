@@ -15,7 +15,7 @@
 }
 .presentation-container {
   position: absolute;
-  background-color: #18181880;
+  background-color: rgba(0, 0, 0, 0.349);
   width: 75%;
   height: 100vh;
   align-items: center;
@@ -30,18 +30,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.presentation-title {
-  font-size: 3rem;
-  color: #f8f8f2;
-  text-align: center;
-}
-
-.presentation-subTitle {
-  font-size: 1.3rem;
-  text-align: center;
-  color: #f5f5f5;
 }
 
 .presentation-container button {

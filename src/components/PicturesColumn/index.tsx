@@ -1,16 +1,12 @@
 import { useEffect, useRef } from "react";
 import "./styles/index.css";
 
-interface reverseProps {
-  reverse: boolean;
-}
-
-type linkProps = {
-  link: { link: string; theme: string }[];
+type PicturesColumnProps = {
+  link: { link: string; theme: string }[] /* mudar nome */;
   reverse: boolean;
 };
 
-export const PicturesColumn = ({ reverse, link }: linkProps) => {
+export const PicturesColumn = ({ reverse, link }: PicturesColumnProps) => {
   console.log(link, reverse);
   return (
     <>

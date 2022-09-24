@@ -21,7 +21,7 @@ export const NavBar = () => {
           <ul>
             <li onClick={() => redirectTo("/")}>Home</li>
             <li onClick={() => redirectTo("/album")}>Album</li>
-            <li>Features</li>
+            <li onClick={() => redirectTo("/services")}>Services</li>
             <li>Works</li>
             <li>Blog</li>
             <li>Shop</li>

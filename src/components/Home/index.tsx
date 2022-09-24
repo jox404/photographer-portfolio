@@ -77,8 +77,8 @@ export const Home = () => {
         </div>
         <div className="presentation-container">
           <div>
-            <h1 className="presentation-title">Lorem ipsum dolor sit amet </h1>
-            <p className="presentation-subTitle">
+            <h1>Lorem ipsum dolor sit amet </h1>
+            <p>
               consectetur adipisicing elit. Quae tempore cum, minima nostrum
               facere aut hic laborum asperiores debitis maiores saepe autem ut
               voluptas amet a cumque maxime beatae sunt.

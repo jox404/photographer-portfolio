@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import data from "../../assets/data/pictures.json";
 import "./styles/index.css";
 
@@ -16,6 +16,8 @@ export const Album = () => {
     }>
   >([]);
   const [themes, setThemes] = useState<string[]>();
+  const [columnsNumber, setColumnsNumber] = useState<string>("1fr");
+  const albumContainer = useRef<HTMLDivElement>(null);
 
   const handleFilter = () => {
     var themes: string[] = [];
@@ -41,15 +43,31 @@ export const Album = () => {
     console.log(pictureFiltered);
   };
 
+  const handleColumnsNumber = () => {
+    const containerColumnsWidth: any = albumContainer.current?.offsetWidth;
+    var amount = 0;
+    if (containerColumnsWidth !== null) {
+      amount = Math.floor(containerColumnsWidth / 300);
+    }
+    var stringCss: string = "";
+    for (let count = 0; count < amount; count++) {
+      stringCss = stringCss + " 1fr";
+    }
+    setColumnsNumber(stringCss);
+  };
+
   useEffect(() => {
     handleFilter();
     setPicturesRender(picturesArray);
-    console.log();
+    handleColumnsNumber();
+    window.addEventListener("resize", () => {
+      handleColumnsNumber();
+    });
   }, []);
 
   return (
     <>
-      <div className="album-container">
+      <div className="album-container" ref={albumContainer}>
         <div className="filter-bar">
           <ul>
             <li onClick={() => setPicturesRender(picturesArray)}>All</li>
@@ -62,7 +80,10 @@ export const Album = () => {
             })}
           </ul>
         </div>
-        <div className="pictures-grid">
+        <div
+          className="pictures-grid"
+          style={{ gridTemplateColumns: columnsNumber }}
+        >
           {picturesRender.map((picture, index) => {
             return (
               <div className="picture-container">
