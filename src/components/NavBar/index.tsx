@@ -7,6 +7,8 @@ import {
   BsInstagram,
 } from "react-icons/bs";
 
+import logo from "../../assets/icons/logo.svg";
+
 export const NavBar = () => {
   const redirectTo = (link: string): void => {
     window.location.replace(link);
@@ -15,17 +17,17 @@ export const NavBar = () => {
     <>
       <div className="container-navbar">
         <div className="logo-container-navbar">
-          <span>Logo</span>
+          <span>
+            <img src={logo} alt="" width={"80%"} />
+          </span>
         </div>
         <div className="navigation-container-navbar">
           <ul>
             <li onClick={() => redirectTo("/")}>Home</li>
             <li onClick={() => redirectTo("/album")}>Album</li>
             <li onClick={() => redirectTo("/services")}>Services</li>
-            <li>Works</li>
-            <li>Blog</li>
-            <li>Shop</li>
-            <li>Extra</li>
+
+            <li onClick={() => redirectTo("/extra")}>Extra</li>
           </ul>
         </div>
         <div className="contacts-container-navbar">

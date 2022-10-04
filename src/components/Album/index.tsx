@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import data from "../../assets/data/pictures.json";
 import "./styles/index.css";
 
@@ -16,77 +16,104 @@ export const Album = () => {
     }>
   >([]);
   const [themes, setThemes] = useState<string[]>();
-  const [columnsNumber, setColumnsNumber] = useState<string>("1fr");
+  const [currentTheme, setCurrentTheme] = useState<string>("all");
   const albumContainer = useRef<HTMLDivElement>(null);
+  const refPicturesGrid = useRef<HTMLDivElement>(null);
 
   const handleFilter = () => {
-    var themes: string[] = [];
+    var themesArray: string[] = [];
     picturesArray.map((picture) => {
-      let alreadyExists = themes.find((theme) => {
+      let alreadyExists = themesArray.find((theme) => {
         return theme == picture.theme;
       });
       if (alreadyExists === undefined) {
-        themes.push(picture.theme);
+        themesArray.push(picture.theme);
       }
     });
-    setThemes(themes);
+    setThemes(themesArray);
   };
 
   const filterByTheme = (filter: string) => {
     const pictureFiltered: picturesArrayType = [];
-    picturesArray.map((picture) => {
-      if (picture.theme === filter) {
-        pictureFiltered.push(picture);
+    if (filter !== "all") {
+      picturesArray.map((picture) => {
+        if (picture.theme === filter) {
+          pictureFiltered.push(picture);
+        }
+      });
+    }
+    if (currentTheme !== filter) {
+      (async () => {
+        setPicturesRender([]);
+      })().then(() => {
+        setPicturesRender(filter === "all" ? picturesArray : pictureFiltered);
+        setCurrentTheme(filter);
+      });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  };
+
+  const animeScroll = () => {
+    const picturesGridArray = refPicturesGrid.current?.getElementsByClassName(
+      "picture-container"
+    ) as HTMLCollectionOf<HTMLElement> | null;
+    const windowTop = window.pageYOffset + (window.innerHeight * 3) / 4;
+
+    if (picturesGridArray?.length) {
+      for (let index = 0; picturesGridArray?.length > index; index++) {
+        if (windowTop > picturesGridArray[index].offsetTop) {
+          picturesGridArray[index].classList.add("show");
+          picturesGridArray[index].classList.remove("hide");
+        } else {
+          picturesGridArray[index].classList.add("hide");
+          picturesGridArray[index].classList.remove("show");
+        }
       }
-    });
-    setPicturesRender(pictureFiltered);
-    console.log(pictureFiltered);
-  };
-
-  const handleColumnsNumber = () => {
-    const containerColumnsWidth: any = albumContainer.current?.offsetWidth;
-    var amount = 0;
-    if (containerColumnsWidth !== null) {
-      amount = Math.floor(containerColumnsWidth / 300);
     }
-    var stringCss: string = "";
-    for (let count = 0; count < amount; count++) {
-      stringCss = stringCss + " 1fr";
-    }
-    setColumnsNumber(stringCss);
   };
-
   useEffect(() => {
     handleFilter();
     setPicturesRender(picturesArray);
-    handleColumnsNumber();
-    window.addEventListener("resize", () => {
-      handleColumnsNumber();
-    });
   }, []);
+  useEffect(() => {
+    animeScroll();
+    window.addEventListener("scroll", () => {
+      animeScroll();
+    });
+  });
 
   return (
     <>
       <div className="album-container" ref={albumContainer}>
         <div className="filter-bar">
           <ul>
-            <li onClick={() => setPicturesRender(picturesArray)}>All</li>
+            <li
+              onClick={() => filterByTheme("all")}
+              style={{ color: "all" === currentTheme ? "#606060" : "#fff" }}
+            >
+              All
+            </li>
             {themes?.map((theme, index) => {
               return (
-                <>
-                  <li onClick={() => filterByTheme(theme)}>{theme}</li>
-                </>
+                <li
+                  onClick={() => filterByTheme(theme)}
+                  key={index}
+                  style={{ color: theme === currentTheme ? "#606060" : "#fff" }}
+                >
+                  {theme}
+                </li>
               );
             })}
           </ul>
         </div>
-        <div
-          className="pictures-grid"
-          style={{ gridTemplateColumns: columnsNumber }}
-        >
+        <div>
+          <h1>Album </h1>
+        </div>
+        <div className="pictures-grid" ref={refPicturesGrid}>
           {picturesRender.map((picture, index) => {
             return (
-              <div className="picture-container">
+              <div className="picture-container" key={index} id={`${index}`}>
                 <img
                   key={index}
                   src={picture.link}

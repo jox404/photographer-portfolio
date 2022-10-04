@@ -7,7 +7,6 @@ type PicturesColumnProps = {
 };
 
 export const PicturesColumn = ({ reverse, link }: PicturesColumnProps) => {
-  console.log(link, reverse);
   return (
     <>
       <div className="column-container">

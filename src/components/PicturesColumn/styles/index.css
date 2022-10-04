@@ -6,7 +6,7 @@
 
 .pictures-container {
   position: relative;
-  animation-duration: 10s;
+  animation-duration: 5s !important;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-play-state: running;

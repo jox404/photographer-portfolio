@@ -13,11 +13,9 @@ export const Services = () => {
           <ul>
             {serviceData.map((service, index) => {
               return (
-                <>
-                  <li onClick={() => redirectTo(`#anchor${index}`)}>
-                    {service.title}
-                  </li>
-                </>
+                <li onClick={() => redirectTo(`#anchor${index}`)} key={index}>
+                  {service.title}
+                </li>
               );
             })}
           </ul>
@@ -33,6 +31,7 @@ export const Services = () => {
                   image={service.image}
                   reverse={index % 2 == 0}
                   anchor={index}
+                  key={index}
                 />
               );
             })}

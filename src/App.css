@@ -8,6 +8,18 @@
   padding: 0px;
   margin: 0px;
 }
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(0, 0, 0);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #44475a;
+  border-radius: 5px;
+}
 
 .container > :last-child {
   margin-left: 25%;
@@ -47,4 +59,10 @@ button:hover {
   background-color: #44475a;
   transition: 0.5s;
   cursor: pointer;
+}
+
+li,
+ul,
+img {
+  user-select: none;
 }
