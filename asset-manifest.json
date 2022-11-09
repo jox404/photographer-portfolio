@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/photographer-portfolio/static/css/main.b2b28e98.css",
-    "main.js": "/photographer-portfolio/static/js/main.143be23c.js",
+    "main.js": "/photographer-portfolio/static/js/main.b689ca82.js",
     "static/js/787.19707d57.chunk.js": "/photographer-portfolio/static/js/787.19707d57.chunk.js",
     "static/media/logo.svg": "/photographer-portfolio/static/media/logo.30bb6b52509e05637091d73527a6abc9.svg",
     "index.html": "/photographer-portfolio/index.html",
     "main.b2b28e98.css.map": "/photographer-portfolio/static/css/main.b2b28e98.css.map",
-    "main.143be23c.js.map": "/photographer-portfolio/static/js/main.143be23c.js.map",
+    "main.b689ca82.js.map": "/photographer-portfolio/static/js/main.b689ca82.js.map",
     "787.19707d57.chunk.js.map": "/photographer-portfolio/static/js/787.19707d57.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b2b28e98.css",
-    "static/js/main.143be23c.js"
+    "static/js/main.b689ca82.js"
   ]
 }
