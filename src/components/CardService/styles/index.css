@@ -3,13 +3,13 @@
   height: 500px;
   background-color: #000;
   display: flex;
+  opacity: 0;
   justify-content: space-between;
-  animation-duration: 1.5s;
 }
+
 .card-service-container > div {
   width: 100%;
   height: 100%;
-  background-color: blueviolet;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,9 +31,31 @@
   flex-direction: column;
   justify-content: center;
 }
+.service-info img {
+  display: none;
+  position: relative;
+  width: 100%;
+  margin: 10px;
+  border-radius: 10px;
+  height: 200px;
+  object-fit: cover;
+}
 
 .card-service-container p {
   text-align: center;
+}
+
+.card-hide {
+  display: none;
+}
+
+.animate-growRight {
+  animation: growRight 1.5s;
+  opacity: 1;
+}
+.animate-growLeft {
+  animation: growLeft 1.5s;
+  opacity: 1;
 }
 
 @keyframes growRight {
@@ -50,5 +72,19 @@
   }
   100% {
     transform: translateX(0vw);
+  }
+}
+@media only screen and (max-width: 900px) {
+  .card-service-container {
+    flex-direction: column !important;
+    height: auto;
+  }
+
+  .service-info img {
+    display: flex;
+  }
+
+  .card-service-image > div {
+    display: none;
   }
 }

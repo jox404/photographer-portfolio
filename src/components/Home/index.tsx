@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PicturesColumn } from "../PicturesColumn";
 import "./styles/index.css";
 import data from "../../assets/data/pictures.json";
@@ -21,6 +21,12 @@ export const Home = () => {
     const width = window.screen.width;
     let amountColumn = 0;
     switch (true) {
+      case width <= 550:
+        amountColumn = 1;
+        break;
+      case width <= 800:
+        amountColumn = 2;
+        break;
       case width <= 1360:
         amountColumn = 3;
         break;
@@ -30,6 +36,8 @@ export const Home = () => {
       case width > 1980:
         amountColumn = 6;
         break;
+      default:
+        amountColumn = 1;
     }
 
     var columnsWithPicture: {

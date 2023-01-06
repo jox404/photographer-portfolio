@@ -1,5 +1,5 @@
 .services-container {
-  width: 75vw;
+  width: 100%;
   min-height: 100vh;
   background-color: #000;
 }
@@ -37,4 +37,13 @@
 
 .cards-container div {
   margin: 20px 0px;
+}
+
+@media only screen and (max-width: 900px) {
+  .navbar {
+    width: 100%;
+  }
+  .cards-container div {
+    margin: 0px !important;
+  }
 }

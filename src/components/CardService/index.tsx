@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import "./styles/index.css";
 
 type CardServiceProps = {
@@ -15,18 +16,41 @@ export const CardService = ({
   reverse = false,
   anchor,
 }: CardServiceProps) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const animeCard = () => {
+    const cardTop = (cardRef.current?.offsetTop as number) || null;
+    const windowTop = window.pageYOffset + (window.innerHeight * 3) / 4;
+
+    if (cardTop != null) {
+      if (windowTop > cardTop) {
+        cardRef.current?.classList.add(
+          reverse ? "animate-growRight" : "animate-growLeft"
+        );
+      }
+    }
+  };
+
+  useEffect(() => {
+    animeCard();
+    window.addEventListener("scroll", () => {
+      animeCard();
+    });
+  }, []);
+
   return (
     <div
-      className="card-service-container"
+      ref={cardRef}
       style={{
         flexDirection: reverse === true ? "row-reverse" : "row",
-        animationName: reverse === true ? "growRight" : "growLeft",
       }}
+      className="card-service-container"
       id={`anchor${anchor}`}
     >
       <div>
         <div className="service-info">
           <h2>{title}</h2>
+          <img src={image} />
           <p>{description}</p>
           <button>Hire Service</button>
         </div>

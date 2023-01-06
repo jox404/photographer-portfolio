@@ -9,28 +9,28 @@ import {
 
 import logo from "../../assets/icons/logo.svg";
 
-export const NavBar = () => {
+export const SideBar = () => {
   const redirectTo = (link: string): void => {
     window.location.replace(link);
   };
   return (
     <>
-      <div className="container-navbar">
-        <div className="logo-container-navbar">
+      <nav className="container-sidebar">
+        <div className="logo-container-sidebar">
           <span>
-            <img src={logo} alt="" width={"80%"} />
+            <img src={logo} alt="" width={"188px"} height={"138px"} />
           </span>
         </div>
-        <div className="navigation-container-navbar">
+        <div className="navigation-container-sidebar">
           <ul>
-            <li onClick={() => redirectTo("/")}>Home</li>
-            <li onClick={() => redirectTo("/album")}>Album</li>
-            <li onClick={() => redirectTo("/services")}>Services</li>
+            <li onClick={() => redirectTo("#/")}>Home</li>
+            <li onClick={() => redirectTo("#/album")}>Album</li>
+            <li onClick={() => redirectTo("#/services")}>Services</li>
 
-            <li onClick={() => redirectTo("/extra")}>Extra</li>
+            <li onClick={() => redirectTo("#/extra")}>Extra</li>
           </ul>
         </div>
-        <div className="contacts-container-navbar">
+        <div className="contacts-container-sidebar">
           <ul className="social-media-list">
             <li>
               <BsFacebook className="social-media-icon" />
@@ -49,7 +49,7 @@ export const NavBar = () => {
             </li>
           </ul>
         </div>
-      </div>
+      </nav>
     </>
   );
 };

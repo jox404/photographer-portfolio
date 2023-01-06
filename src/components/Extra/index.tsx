@@ -1,5 +1,6 @@
 import { BsGithub, BsLinkedin, BsWhatsapp } from "react-icons/bs";
 import "./styles/index.css";
+import perfil from "../../assets/images/perfil.jpeg";
 
 export const Extra = () => {
   const redirectTo = (link: string): void => {
@@ -9,12 +10,12 @@ export const Extra = () => {
     <>
       <div className="extra-container">
         <div>
-          <h1>Sobre Mim</h1>
+          <h1>About me</h1>
         </div>
         <div>
           <div>
             <img
-              src="https://jox404.github.io/portifolio/static/media/perfil.a190d5b5.jpeg"
+              src={perfil}
               alt="foto-de-perfil"
               /*   width={300} */
             />
@@ -49,7 +50,7 @@ export const Extra = () => {
           </div>
         </div>
         <span className="contact-container">
-          <h2>Contato</h2>
+          <h2>Contact</h2>
           <ul>
             <li>
               <BsGithub
