@@ -36,8 +36,8 @@ function App() {
   return (
     <HashRouter>
       <div className="container" ref={refContainer}>
-        {/*  <SideBar />
-        <BtnPull /> */}
+        <SideBar />
+        {/*  <BtnPull /> */}
         <Routes>
           {routesList.map((route, index) => {
             return (

@@ -6,7 +6,7 @@
 
 .pictures-container {
   position: relative;
-  animation-duration: 5s !important;
+  animation-duration: 10s !important;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-play-state: running;
@@ -33,7 +33,7 @@
 }
 
 .photography {
-  width: 250px;
+  width: 240px;
   height: 100%;
   margin: 10px 0px;
   border-radius: 5px;
@@ -56,5 +56,11 @@
 
   100% {
     transform: translateY(0px);
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .photography {
+    width: 340px;
   }
 }

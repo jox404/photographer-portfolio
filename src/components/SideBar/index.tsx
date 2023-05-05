@@ -50,6 +50,16 @@ export const SideBar = () => {
           </ul>
         </div>
       </nav>
+      <nav className="container-navbar-mobile">
+        <div className="navigation-container-navbar-mobile">
+          <ul>
+            <li onClick={() => redirectTo("#/")}>Home</li>
+            <li onClick={() => redirectTo("#/album")}>Album</li>
+            <li onClick={() => redirectTo("#/services")}>Services</li>
+            <li onClick={() => redirectTo("#/extra")}>Extra</li>
+          </ul>
+        </div>
+      </nav>
     </>
   );
 };

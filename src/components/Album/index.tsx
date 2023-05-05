@@ -90,7 +90,9 @@ export const Album = () => {
           <ul>
             <li
               onClick={() => filterByTheme("all")}
-              style={{ color: "all" === currentTheme ? "#606060" : "#fff" }}
+              style={{
+                color: "all" === currentTheme ? "#fff" : "#ffffffb7",
+              }}
             >
               All
             </li>
@@ -99,7 +101,9 @@ export const Album = () => {
                 <li
                   onClick={() => filterByTheme(theme)}
                   key={index}
-                  style={{ color: theme === currentTheme ? "#606060" : "#fff" }}
+                  style={{
+                    color: theme === currentTheme ? "#fff" : "#ffffffb7",
+                  }}
                 >
                   {theme}
                 </li>
@@ -118,6 +122,7 @@ export const Album = () => {
                   key={index}
                   src={picture.link}
                   className={"picture-album"}
+                  alt={picture.theme}
                 />
               </div>
             );

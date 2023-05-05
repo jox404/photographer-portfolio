@@ -19,16 +19,17 @@ export const Home = () => {
 
   const shufflerPhotographs = (): any => {
     const width = window.screen.width;
+    console.log(width);
     let amountColumn = 0;
     switch (true) {
-      case width <= 550:
+      case width <= 700:
         amountColumn = 1;
         break;
-      case width <= 800:
+      case width <= 900:
         amountColumn = 2;
         break;
       case width <= 1360:
-        amountColumn = 3;
+        amountColumn = 4;
         break;
       case width <= 1980:
         amountColumn = 5;
