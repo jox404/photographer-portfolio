@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/photographer-portfolio/static/css/main.c570a94c.css",
-    "main.js": "/photographer-portfolio/static/js/main.65174619.js",
-    "static/js/787.19707d57.chunk.js": "/photographer-portfolio/static/js/787.19707d57.chunk.js",
-    "static/media/perfil.jpeg": "/photographer-portfolio/static/media/perfil.0397ed1b5a6b67f4a65c.jpeg",
-    "static/media/logo.svg": "/photographer-portfolio/static/media/logo.99134960d53ea39c8673375eb116ef7e.svg",
-    "index.html": "/photographer-portfolio/index.html",
-    "main.c570a94c.css.map": "/photographer-portfolio/static/css/main.c570a94c.css.map",
-    "main.65174619.js.map": "/photographer-portfolio/static/js/main.65174619.js.map",
-    "787.19707d57.chunk.js.map": "/photographer-portfolio/static/js/787.19707d57.chunk.js.map"
+    "main.css": "/static/css/main.c570a94c.css",
+    "main.js": "/static/js/main.bae3b389.js",
+    "static/js/787.19707d57.chunk.js": "/static/js/787.19707d57.chunk.js",
+    "static/media/perfil.jpeg": "/static/media/perfil.0397ed1b5a6b67f4a65c.jpeg",
+    "static/media/logo.svg": "/static/media/logo.99134960d53ea39c8673375eb116ef7e.svg",
+    "index.html": "/index.html",
+    "main.c570a94c.css.map": "/static/css/main.c570a94c.css.map",
+    "main.bae3b389.js.map": "/static/js/main.bae3b389.js.map",
+    "787.19707d57.chunk.js.map": "/static/js/787.19707d57.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c570a94c.css",
-    "static/js/main.65174619.js"
+    "static/js/main.bae3b389.js"
   ]
 }

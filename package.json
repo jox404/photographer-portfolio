@@ -1,6 +1,5 @@
 {
   "name": "photographer-portfolio",
-  "homepage": "https://jox404.github.io/photographer-portfolio/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

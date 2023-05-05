@@ -5,8 +5,6 @@ import { Extra } from "./components/Extra";
 import { Home } from "./components/Home";
 import { SideBar } from "./components/SideBar";
 import { Services } from "./components/Services";
-import { BtnPull } from "./components/BtnPull";
-import { useEffect, useRef, useState } from "react";
 
 function App() {
   const routesList = [
@@ -15,29 +13,11 @@ function App() {
     { path: "/services", element: <Services /> },
     { path: "/extra", element: <Extra /> },
   ];
-  const refContainer = useRef<HTMLDivElement>(null);
-
-  const [showSideBar, setShowSideBar] = useState(false);
-
-  const handleShowSideBar = () => {
-    /*   document.getElementsByClassName() */
-    if (refContainer != null) {
-      var container = refContainer.current;
-      /*  var navBar = container?.getElementsByClassName("container-sidebar");
-      console.log(navBar);
-      if(navBar.classList.contains('')) */
-    }
-  };
-
-  useEffect(() => {
-    handleShowSideBar();
-  }, []);
 
   return (
     <HashRouter>
-      <div className="container" ref={refContainer}>
+      <div className="container">
         <SideBar />
-        {/*  <BtnPull /> */}
         <Routes>
           {routesList.map((route, index) => {
             return (
